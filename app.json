@@ -1,12 +1,26 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/newWish/newWish",
+    "pages/account/account"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "Home"
+    }, {
+      "pagePath": "pages/newWish/newWish",
+      "text": "New Wish"
+    },{
+      "pagePath":"pages/account/account",
+      "text":"Me"
+    }]
   }
 }
