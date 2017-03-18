@@ -1,4 +1,24 @@
-<!--index.wxml-->
-<view class="container">
-Hello world.
-</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class ="wb-input">
+    <input name="title"  placeholder="title"/>
+  </view>
+    <view class ="wb-input">
+    <input name="amount"  placeholder="amount in (S$)"/>
+  </view>
+  <view class="wb-textarea">
+    <textarea name="description" placeholder="description"/>
+  </view>
+  <view>
+    <picker name="grantedDuration" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="wb-input">
+      Granted Duration：
+      <text class="wb-picker-text">{{array[index]}}       </text>
+      Days
+    </view>
+      </picker>
+    </view>
+
+  <view>
+    <button class="wb-btn wb-btn-primary"  formType="submit">Submit</button>
+  </view>
+</form>
