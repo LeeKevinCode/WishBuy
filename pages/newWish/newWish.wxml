@@ -1,4 +1,32 @@
 <!--index.wxml-->
-<view class="container">
-Hello world.
+<view class="page">
+    <form class="page__bd" catchsubmit="formSubmit" catchreset="formReset">
+        Title:<br/>
+        <view class="section">
+            <input name="title" auto-focus/>
+        </view>
+        Description:<br/>
+        <view class="section">
+            <textarea name="description"/>
+        </view>
+        Wish Amount:<br/>
+        <view class="section">
+            <input name="wishAmount" auto-focus type="number"/>
+        </view>
+        Expiry Date: <br/>
+        <view class="section">
+            <picker name="datePicker" mode="date" value="{{chosen}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="picker">
+                     Current Choice: {{chosen}}
+                </view>
+            </picker>
+        </view>
+        <view class="btn-area">
+            <button formType="submit">Submit</button>
+            <button formType="reset">Reset</button>
+        </view>
+        <view class="page__hd" wx:if="{{error}}">
+            <text>{{error}}</text>
+        </view>
+    </form>
 </view>
