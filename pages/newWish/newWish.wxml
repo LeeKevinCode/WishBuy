@@ -3,10 +3,10 @@
     <input name="title"  placeholder="title"/>
   </view>
     <view class ="wb-input">
-    <input name="amount"  placeholder="amount in (S$)"/>
+    <input name="amount" type="number"  placeholder="amount in (S$)"/>
   </view>
   <view class="wb-textarea">
-    <textarea name="description" placeholder="description"/>
+    <textarea maxlength="-1" name="description" placeholder="description"/>
   </view>
   <view>
     <picker name="grantedDuration" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
@@ -19,6 +19,6 @@
     </view>
 
   <view>
-    <button class="wb-btn wb-btn-primary"  formType="submit">Submit</button>
+    <button class="wb-btn wb-btn-primary"  formType="submit">Create</button>
   </view>
 </form>

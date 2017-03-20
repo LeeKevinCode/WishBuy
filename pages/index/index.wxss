@@ -1,21 +1,45 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container{
+  height: 1500rpx;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.wish-item{
+  width: 690rpx;
+  padding: 25rpx 25rpx 20rpx;
+  margin: 7rpx 0 6rpx 0;
+  background: white;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px #eeeeee;
+  font-size: 12px;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.wish-title{
+  font-size: 13px;
+  font-weight:600;
+  line-height: 40rpx;
+  text-transform: uppercase;
 }
-
-.usermotto {
-  margin-top: 200px;
+.wish-stats view{
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+.wish-stats .wish-status{
+  float: right;
+}
+.wish-content{
+  padding: 10rpx 0 0 0;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: 45b4b4b;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.wish-actions view{
+  color: #a0acac;
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 0 10rpx 0 0;
+  font-size: 24rpx;
+}
+.wish-actions .dot ::after{
+  content: "•";
 }

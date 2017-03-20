@@ -26,6 +26,14 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    wishStatus:{
+      expired:-2,
+      cancelled:-1,
+      draft:0,
+      posted:1,
+      accepted:2,
+      realized:3,
+    },
   }
 })

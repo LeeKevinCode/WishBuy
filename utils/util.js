@@ -16,6 +16,24 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+// store new wish into local storage
+function storeWish(w)
+{
+  var wishes = wx.getStorageSync('wishes');
+  wishes = wishes || [];
+  wishes.push(w);
+  wx.setStorageSync('wishes', wishes);
+}
+
+// get all wishes from local storage
+function getAllWishes()
+{
+  return wx.getStorageSync('wishes') || [];
+}
+
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  storeWish: storeWish,
+  getAllWishes:getAllWishes
 }

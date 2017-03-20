@@ -1,0 +1,26 @@
+.wb-input {
+  padding: 20rpx 5rpx 20rpx 10rpx;
+  border-bottom: 2rpx darkgray solid;
+  margin-bottom: 15rpx;
+}
+.wb-textarea {
+  padding: 20rpx 5rpx 20rpx 10rpx;
+  border-bottom: 2rpx darkgray solid;
+  margin-bottom: 15rpx;
+}
+.wb-center{
+  text-align: center;
+}
+.wb-picker-text{
+  padding: 5rpx;
+  background-color: lightgray;
+}
+
+.wb-btn{
+  height: 100rpx;
+  margin-bottom: 15rpx;
+}
+
+.wb-btn-primary{
+  background-color: lightgreen;
+}

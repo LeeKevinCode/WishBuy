@@ -1,9 +1,8 @@
-//index.js
-//获取应用实例
+var util = require('../../utils/util.js')
 var app = getApp()
 Page({
   data: {
-    motto: 'WishBuy',
+    wishList: [],
     userInfo: {}
   },
   //事件处理函数
@@ -13,13 +12,20 @@ Page({
     })
   },
   onLoad: function () {
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+    // get all wishes for display
+    var wishes = util.getAllWishes();
+    // add short description to wish
+    wishes.forEach(val => {
+      if(val.description && val.description.length > 200)
+      {
+          val.shortDes = val.description.substring(0,200);
+      }else{
+        val.shortDes = val.description;
+      }
+      val.shortDes += ' ...';
+    });
+    this.setData({
+      wishList:wishes,
     })
   }
 })
