@@ -28,12 +28,12 @@ App({
   globalData:{
     userInfo:null,
     wishStatus:{
-      expired:-2,
-      cancelled:-1,
-      draft:0,
-      posted:1,
-      accepted:2,
-      realized:3,
+      expired:"Expired",
+      cancelled:"Cancelled",
+      draft:"Draft",
+      posted:"Posted",
+      accepted:"Accepted",
+      realized:"Realized",
     },
   }
 })

@@ -5,13 +5,13 @@ Page({
     wishList: [],
     userInfo: {}
   },
-  //事件处理函数
-  bindViewTap: function() {
+  wishTap: function(e) {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../wish/wish?wishId=' + e.currentTarget.id
     })
   },
   onLoad: function () {
+    
     // get all wishes for display
     var wishes = util.getAllWishes();
     // add short description to wish

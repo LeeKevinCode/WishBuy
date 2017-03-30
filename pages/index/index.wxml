@@ -1,11 +1,8 @@
 <view class='container'>
     <block wx:for="{{wishList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
-        <view class="wish-item">
-
-           <view class="wish-title" bindtap="bindTitleTap">
-             <a class="title-link">
+        <view class="wish-item" id="{{item.id}}" bindtap="wishTap">
+           <view class="wish-title">
                <text>{{item.title}}</text>
-             </a>
             </view>
             
             <view class="wish-stats">
@@ -14,11 +11,11 @@
                 <view class="wish-status">No Updates{{item.statusText}}</view>
             </view>
 
-            <view bindtap="bindDescTap" class="wish-content">
+            <view class="wish-content">
               <text>{{item.shortDes}}</text>
             </view>
 
-             <view class="wish-actions" bindtap="bindActionTap">
+             <view class="wish-actions">
                 <view class="like dot">
                     <a>0 likes </a>
                 </view>

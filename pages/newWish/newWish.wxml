@@ -1,6 +1,6 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class ="wb-input">
-    <input name="title"  placeholder="title"/>
+    <input name="title" placeholder="title"/>
   </view>
     <view class ="wb-input">
     <input name="amount" type="number"  placeholder="amount in (S$)"/>

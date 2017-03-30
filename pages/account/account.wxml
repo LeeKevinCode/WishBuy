@@ -21,6 +21,7 @@
         </view>
         <view class="my-item flex-wrp">
         <view class="myitem-icon flex-item" >
+           <image src="../../images/star.png"></image>
         </view>
         <view class="myitem-name flex-item">
             <text>Wallet</text>

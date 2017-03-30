@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/newWish/newWish",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/wish/wish"
   ],
   "window":{
     "backgroundTextStyle":"light",

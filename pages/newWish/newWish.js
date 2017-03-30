@@ -34,6 +34,7 @@ Page({
     newWish.grantedDuration = this.data.objectArray[grantIndex].duration;
     // set wish creator
     newWish.creator = this.data.userInfo.nickName;
+    newWish.creatorAvatarUrl = this.data.userInfo.avatarUrl;
     // set wish status to draft
     newWish.status = app.globalData.wishStatus.draft;
     util.storeWish(e.detail.value);

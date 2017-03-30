@@ -10,6 +10,16 @@ function formatTime(date) {
 
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
+// a utility function to generator pseudo-guid
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
 
 function formatNumber(n) {
   n = n.toString()
@@ -19,6 +29,7 @@ function formatNumber(n) {
 // store new wish into local storage
 function storeWish(w)
 {
+  w.id = w.id || guid();
   var wishes = wx.getStorageSync('wishes');
   wishes = wishes || [];
   wishes.push(w);
@@ -30,10 +41,24 @@ function getAllWishes()
 {
   return wx.getStorageSync('wishes') || [];
 }
+// get wish by id
+function getWishById(id)
+{
+  var wishes = wx.getStorageSync('wishes') || [];
+  var targetWish = wishes.filter(w => w.id.toLowerCase() == id.toLowerCase());
+  if(targetWish.length > 0)
+  {
+    return targetWish[0];
+  }else
+  {
+    return null;
+  }
+}
 
 
 module.exports = {
   formatTime: formatTime,
   storeWish: storeWish,
-  getAllWishes:getAllWishes
+  getAllWishes:getAllWishes,
+  getWishById:getWishById,
 }
