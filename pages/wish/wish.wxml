@@ -1,0 +1,29 @@
+<view class="container">
+    <view class="wish-title">
+         <text> {{wish.title}}</text>
+    </view>
+    
+    <view class="wish-status">
+        <text>{{wish.status}}</text>
+    </view>
+
+    <view class="wish-profile">
+        <view class="requestor flex-wrp">
+            <view class="request-icon flex-item" >
+                <image src="../../images/heart.png"></image>
+            </view>
+            <view class="requestor-desc flex-item">
+                <text>{{wish.creator}} Posted On: 2016-Jun-20</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="wish-description">
+        <text>{{wish.description}}</text>
+    </view>
+
+    <view>
+        <button class="btn-accept" type="primary" bindtap="primary" formType="submit"> Realize It </button>
+    </view>
+
+</view>
