@@ -1,10 +1,32 @@
-<!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view class='container'>
+    <block wx:for="{{wishList}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="wish-item" id="{{item.id}}" bindtap="wishTap">
+           <view class="wish-title">
+               <text>{{item.title}}</text>
+            </view>
+            
+            <view class="wish-stats">
+                <view class="wish-expiry">Wanted By: {{item.expiryDate}}
+                </view>
+                <view class="wish-status">No Updates{{item.statusText}}</view>
+            </view>
+
+            <view class="wish-content">
+              <text>{{item.shortDes}}</text>
+            </view>
+
+             <view class="wish-actions">
+                <view class="like dot">
+                    <a>0 likes </a>
+                </view>
+                <view class="comments dot">
+                    <a>0 comments </a>
+                </view>
+                <view class="follow-it">
+                    <a>follow</a>
+                </view>
+              </view>
+
+        </view>
+    </block>
 </view>

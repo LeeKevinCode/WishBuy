@@ -1,27 +1,26 @@
-.page{
-    padding: 20rpx 40rpx;
-    flex-direction:column;
-    height: max-content;
+.wb-input {
+  padding: 20rpx 5rpx 20rpx 10rpx;
+  border-bottom: 2rpx darkgray solid;
+  margin-bottom: 15rpx;
+}
+.wb-textarea {
+  padding: 20rpx 5rpx 20rpx 10rpx;
+  border-bottom: 2rpx darkgray solid;
+  margin-bottom: 15rpx;
+}
+.wb-center{
+  text-align: center;
+}
+.wb-picker-text{
+  padding: 5rpx;
+  background-color: lightgray;
 }
 
-.section {
-    border-style: solid;
-    border-width:1rpx;
-    margin:15rpx;
-    border-radius: 5rpx;
-    border-color: #39F;
-    background-color: #EEE;
+.wb-btn{
+  height: 100rpx;
+  margin-bottom: 15rpx;
 }
 
-.section input, textarea{
-    margin: 15rpx;
-}
-.btn-area {
-    margin:20rpx;
-    bottom:40rpx;
-}
-
-.btn-area button{
-    margin:20rpx;
-    background-color:chartreuse;
+.wb-btn-primary{
+  background-color: lightgreen;
 }

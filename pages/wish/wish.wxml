@@ -1,0 +1,67 @@
+<view class="container">
+    <view class="wish-title">
+         <text> {{wish.title}}</text>
+    </view>
+    
+    <view class="wish-status">
+        <text>{{wish.status}}</text>
+    </view>
+
+    <view class="wish-profile">
+        <view wx:if="{{wish.createdDate}}" class="requestor flex-wrp">
+            <view class="request-icon flex-item" >
+                <image src="{{wish.creatorAvatarUrl}}"></image>
+            </view>
+            <view class="requestor-desc flex-item">
+                <text>{{wish.creator}} Created On: {{wish.createdDate}} </text>
+            </view>
+        </view>
+
+        <view wx:if="{{wish.postedDate}}" class="requestor flex-wrp">
+            <view class="request-icon flex-item" >
+                <image src="{{wish.creatorAvatarUrl}}"></image>
+            </view>
+            <view class="requestor-desc flex-item">
+                <text>{{wish.creator}} Posted On: {{wish.postedDate}}</text>
+            </view>
+        </view>
+
+        <view wx:if="{{wish.acceptedDate}}" class="requestor flex-wrp">
+            <view class="request-icon flex-item" >
+                <image src="{{wish.travellerAvatarUrl}}"></image>
+            </view>
+            <view class="requestor-desc flex-item">
+                <text>{{wish.traveller}} Accepted On: {{wish.acceptedDate}} </text>
+            </view>
+        </view>
+
+        <view wx:if="{{wish.deliveredDate}}" class="requestor flex-wrp">
+            <view class="request-icon flex-item" >
+                <image src="{{wish.travellerAvatarUrl}}"></image>
+            </view>
+            <view class="requestor-desc flex-item">
+                <text>{{wish.traveller}} Delivered On: {{wish.deliveredDate}} </text>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="wish-description">
+        <text>{{wish.description}}</text>
+    </view>
+
+    <view class="wish-amount">
+        <text>Wish Amount (S$): {{wish.amount}}</text>
+    </view>
+
+    <view wx:if="{{wish.dueDate}}" class="wish-dueDate">
+        <text>Due on: {{wish.dueDate}}</text>
+    </view>
+
+    <view>
+        <button wx:if="{{wish.status === wishStatus.draft}}"  class="btn-accept" type="primary" bindtap="postWish" formType="submit"> Pay and Post               </button>
+         <button wx:if="{{wish.status === wishStatus.draft}}" class="btn-accept" type="default" bindtap="primary" formType="submit"> Keep as Draft            </button>
+        <button wx:if="{{wish.status === wishStatus.posted}}" class="btn-accept" type="primary" bindtap="acceptWish" formType="submit"> Realize It               </button>
+         <button wx:if="{{wish.status === wishStatus.accepted}}" class="btn-accept" type="primary" bindtap="confirmDelivery" formType="submit"> Confirm Granted          </button>
+    </view>
+</view>

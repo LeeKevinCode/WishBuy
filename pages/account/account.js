@@ -1,26 +1,44 @@
-//index.js
-//获取应用实例
+var util = require('../../utils/util.js')
 var app = getApp()
 Page({
   data: {
-    motto: 'WishBuy',
     userInfo: {}
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad: function () {
-    console.log('onLoad')
     var that = this
-    //调用应用实例的方法获取全局数据
+    // get user info
     app.getUserInfo(function(userInfo){
-      //更新数据
       that.setData({
         userInfo:userInfo
       })
     })
-  }
+  },
+  showMyWishes: function(){
+    wx.navigateTo({
+      url: '../list/list',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  showMyWallet:function(){
+    wx.navigateTo({
+      url: '../wallet/wallet',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
 })
