@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container wish">
     <view class="wish-title">
          <text> {{wish.title}}</text>
     </view>
@@ -60,8 +60,8 @@
 
     <view>
         <button wx:if="{{wish.status === wishStatus.draft}}"  class="btn-accept" type="primary" bindtap="postWish" formType="submit"> Pay and Post               </button>
-         <button wx:if="{{wish.status === wishStatus.draft}}" class="btn-accept" type="default" bindtap="primary" formType="submit"> Keep as Draft            </button>
-        <button wx:if="{{wish.status === wishStatus.posted}}" class="btn-accept" type="primary" bindtap="acceptWish" formType="submit"> Realize It               </button>
+         <button wx:if="{{wish.status === wishStatus.draft}}" class="btn-accept" type="default" bindtap="closeWish" formType="submit"> Keep as Draft            </button>
+        <button wx:if="{{wish.status === wishStatus.posted}}" class="btn-accept" type="primary" bindtap="acceptWish" formType="submit"> Accept               </button>
          <button wx:if="{{wish.status === wishStatus.accepted}}" class="btn-accept" type="primary" bindtap="confirmDelivery" formType="submit"> Confirm Granted          </button>
     </view>
 </view>

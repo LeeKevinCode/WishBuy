@@ -1,17 +1,18 @@
 var util = require('../../utils/util.js')
-var app = getApp()
+var app = getApp();
+var serviceUrl = app.globalData.serviceHost;
 Page({
-  data:{
-    userInfo:{},
-    array:['15','30','60','90'],
-     objectArray: [
-      {id: 0,duration: '15'},
-      {id: 1,duration: '30'},
-      {id: 2,duration: '60'},
-      {id: 3,duration: '90'}],
-    index:0,
+  data: {
+    userInfo: {},
+    array: ['15', '30', '60', '90'],
+    objectArray: [
+      { id: 0, duration: '15' },
+      { id: 1, duration: '30' },
+      { id: 2, duration: '60' },
+      { id: 3, duration: '90' }],
+    index: 0,
   },
-  onLoad:function(){
+  onLoad: function () {
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
@@ -21,42 +22,50 @@ Page({
       })
     })
   },
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
   },
-  formSubmit: function(e) {
+  formSubmit: function (e) {
     var newWish = e.detail.value;
     // convert wish duration
     var grantIndex = newWish.grantedDuration;
-    newWish.grantedDuration = this.data.objectArray[grantIndex].duration;
+    newWish.GrantedDays = this.data.objectArray[grantIndex].duration;
     // set wish creator
     newWish.creator = this.data.userInfo.nickName;
     newWish.creatorAvatarUrl = this.data.userInfo.avatarUrl;
-    // set wish status to draft
-    newWish.status = app.globalData.wishStatus.draft;
-    newWish.id = util.guid();
-    newWish.createdDate= 
-      (new Date()).toDateString();
-    util.storeWish(e.detail.value);
-    console.log('form submit with data:',newWish);
-    // redirect to detail page
-    wx.redirectTo({
-      url: '../wish/wish?wishId='+newWish.id,
-      success: function(res){
-        // success
+    wx.request({
+      url: serviceUrl + "wish/create",
+      data: newWish,
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        console.log("create success",res);
+        // redirect to detail page
+        wx.redirectTo({
+          url: '../wish/wish?wishId=' + res.data.wishId,
+          success: function (res) {
+            // success
+          },
+          fail: function () {
+            // fail
+          },
+          complete: function () {
+            // complete
+          }
+        });
       },
-      fail: function() {
+      fail: function () {
         // fail
       },
-      complete: function() {
+      complete: function () {
         // complete
       }
     })
   },
-  formReset: function() {
+  formReset: function () {
     console.log('form发生了reset事件')
   }
 })

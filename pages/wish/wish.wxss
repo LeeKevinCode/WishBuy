@@ -1,3 +1,6 @@
+.wish {
+  text-align: center;
+}
 .wish-title{
     font-size: 24px;
 }

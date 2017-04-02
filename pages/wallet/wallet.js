@@ -1,8 +1,10 @@
 var util = require('../../utils/util.js');
 var app = getApp();
+var serviceUrl = app.globalData.serviceHost;
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    wallet: {},
   },
   onLoad: function () {
     // get current userInfo
@@ -14,10 +16,21 @@ Page({
       })
     })
     // get wallet
-        console.log('My wallet',util.getWalletById(that.data.userInfo.nickName));
-    that.setData({
-      wallet:util.getWalletById(that.data.userInfo.nickName)
-    })
-
+    wx.request({
+      url: serviceUrl + "wallet/" + that.data.userInfo.nickName,
+      method: 'GET',
+      success: function (res) {
+        console.log('Get wllet succes', res);
+        that.setData({
+          wallet: res.data
+        });
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
+    });
   }
 })

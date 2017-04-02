@@ -1,5 +1,6 @@
-var util = require('../../utils/util.js')
-var app = getApp()
+var util = require('../../utils/util.js');
+var app = getApp();
+var serviceUrl = app.globalData.serviceHost;
 Page({
     data: {
         wishList: [],
@@ -14,27 +15,43 @@ Page({
         // get current userInfo
         var that = this
         // get user info
+        var nickName;
         app.getUserInfo(function (userInfo) {
             that.setData({
                 userInfo: userInfo
-            })
-        })
-        // get all wishes belong to me
-        var wishes = util.getAllWishes();
-        var wishLst = 
-        wishes.filter(w => w.creator == that.data.userInfo.nickName)
-        .map(val => {
-            var wish = Object.assign({},val);
-            if (val.description && val.description.length > 200) {
-                wish.shortDes = val.description.substring(0, 200);
-            } else {
-                wish.shortDes = val.description;
-            }
-            wish.shortDes += ' ...';
-            return wish;
+            });
         });
-        this.setData({
-            wishList: wishLst,
-        })
-    }
+    },
+    onShow: function () {
+        var nickName = this.data.userInfo.nickName;
+        var that = this;
+        wx.request({
+            url: serviceUrl + "wish/my/" + nickName,
+            method: 'GET',
+            success: function (res) {
+                var wishes = res.data;
+
+                wishes.forEach(val => {
+                    if (val.description && val.description.length > 200) {
+                        val.shortDes = val.description.substring(0, 200);
+                    } else {
+                        val.shortDes = val.description;
+                    }
+                    val.shortDes += ' ...';
+                    val.dueDate =
+                        new Date(val.dueDate).toDateString();
+                });
+
+                that.setData({
+                    wishList: wishes,
+                })
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function () {
+                // complete
+            }
+        });
+    },
 })

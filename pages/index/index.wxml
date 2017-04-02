@@ -6,9 +6,9 @@
             </view>
             
             <view class="wish-stats">
-                <view class="wish-expiry">Wanted By: {{item.expiryDate}}
+                <view class="wish-expiry">Wanted By: {{item.dueDate}}
                 </view>
-                <view class="wish-status">No Updates{{item.statusText}}</view>
+                <view class="wish-status">{{item.status}}</view>
             </view>
 
             <view class="wish-content">

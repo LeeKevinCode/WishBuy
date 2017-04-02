@@ -1,3 +1,7 @@
+.wallet{
+  text-align: center;
+}
 .balance-title{
   font-size: 30px;
+  display: block;
 }
