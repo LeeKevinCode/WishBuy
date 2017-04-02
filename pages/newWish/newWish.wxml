@@ -11,7 +11,7 @@
   <view>
     <picker name="grantedDuration" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
     <view class="wb-input">
-      Granted Duration：
+      Granted Duration:
       <text class="wb-picker-text">{{array[index]}}       </text>
       Days
     </view>
