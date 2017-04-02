@@ -1,0 +1,4 @@
+<view class="container">
+  <text class='balance-title'>Balance</text>
+  <text>S${{wallet.balance}}</text>
+</view>

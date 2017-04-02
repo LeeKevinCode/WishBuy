@@ -4,12 +4,6 @@ Page({
   data: {
     userInfo: {}
   },
-  // tap event handler
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: ''
-    })
-  },
   onLoad: function () {
     var that = this
     // get user info
@@ -18,5 +12,33 @@ Page({
         userInfo:userInfo
       })
     })
-  }
+  },
+  showMyWishes: function(){
+    wx.navigateTo({
+      url: '../list/list',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  showMyWallet:function(){
+    wx.navigateTo({
+      url: '../wallet/wallet',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
 })

@@ -37,8 +37,24 @@ Page({
     newWish.creatorAvatarUrl = this.data.userInfo.avatarUrl;
     // set wish status to draft
     newWish.status = app.globalData.wishStatus.draft;
+    newWish.id = util.guid();
+    newWish.createdDate= 
+      (new Date()).toDateString();
     util.storeWish(e.detail.value);
     console.log('form submit with data:',newWish);
+    // redirect to detail page
+    wx.redirectTo({
+      url: '../wish/wish?wishId='+newWish.id,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
   formReset: function() {
     console.log('form发生了reset事件')

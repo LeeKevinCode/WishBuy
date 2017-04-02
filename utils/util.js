@@ -54,6 +54,34 @@ function getWishById(id)
     return null;
   }
 }
+// get wallet by id 
+function getWalletById(id)
+{
+  var wallet = wx.getStorageSync('wallets');
+  if(wallet)
+  {
+    return wallet;
+  }else{
+    wallet = {};
+    wallet.balance = 1000;
+    updateWallet(wallet);
+    return wallet;
+  }
+
+}
+
+function updateWallet(wallet)
+{
+  wx.setStorageSync('wallet', wallet)
+}
+
+function updateWish(wish)
+{
+  var wishes = wx.getStorageSync('wishes');
+  wishes = wishes.filter(w => w.id != wish.id);
+  wishes.unshift(wish);
+  wx.setStorageSync('wishes', wishes);
+}
 
 
 module.exports = {
@@ -61,4 +89,8 @@ module.exports = {
   storeWish: storeWish,
   getAllWishes:getAllWishes,
   getWishById:getWishById,
+  updateWish:updateWish,
+  guid:guid,
+  getWalletById:getWalletById,
+  updateWallet:updateWallet,
 }

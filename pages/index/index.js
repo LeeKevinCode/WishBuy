@@ -3,7 +3,8 @@ var app = getApp()
 Page({
   data: {
     wishList: [],
-    userInfo: {}
+    userInfo: {},
+    simple:[],
   },
   wishTap: function(e) {
     wx.navigateTo({
@@ -11,8 +12,7 @@ Page({
     })
   },
   onLoad: function () {
-    
-    // get all wishes for display
+            // get all wishes for display
     var wishes = util.getAllWishes();
     // add short description to wish
     wishes.forEach(val => {

@@ -11,7 +11,7 @@
   </view>
 
   <view class="my">
-    <view class="my-item flex-wrp">
+    <view class="my-item flex-wrp" bindtap="showMyWishes">
         <view class="myitem-icon flex-item" >
             <image src="../../images/heart.png"></image>
         </view>
@@ -19,7 +19,7 @@
             <text>Wishes</text>
         </view>
         </view>
-        <view class="my-item flex-wrp">
+        <view class="my-item flex-wrp" bindtap="showMyWallet">
         <view class="myitem-icon flex-item" >
            <image src="../../images/star.png"></image>
         </view>
